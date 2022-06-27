@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+}
+
+.App {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  width: 100vw;
+  height: 100vh;
+}
+
+.PageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  background-color: #424750;
+}
+
+ul {
+  position: relative;
+  transform: skewY(-15deg);
+  list-style: none;
+}
+
+.Block {
+  --depth: 60px;
+  position: relative;
+  background-color: #3e4046;
+  width: 325px;
+  z-index: var(--i);
+  transition: 0.5s;
+}
+
+.Block a {
+  padding: 30px;
+  font-size: 25px;
+  color: #aaa;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+}
+
+.Block:hover {
+  background-color: dodgerblue;
+  transition: 0.5s;
+  transform: translate(-40px, 0px);
+}
+
+.Block:hover a {
+  color: #fff;
+}
+
+.Block::before {
+  content: "";
+  position: absolute;
+  background-color: #2f3133;
+  width: var(--depth);
+  height: 100%;
+  top: 0;
+  left: calc(var(--depth) * -1);
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.5s;
+}
+
+.Block::after {
+  content: "";
+  position: absolute;
+  background-color: #36383e;
+  width: 100%;
+  height: var(--depth);
+  top: calc(var(--depth) * -1);
+  left: 0px;
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 0.5s;
+}
